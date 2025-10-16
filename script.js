@@ -14,24 +14,28 @@ let paddleX = (canvas.width - paddleWidth) / 2;
 let rightPressed = false;
 let leftPressed = false;
 
-let brickWidth = 30;
-let brickHeight = 15;
+let brickWidth = 25;
+let brickHeight = 12;
 let brickPadding = 5;
 let brickOffsetTop = 30;
-let brickOffsetLeft = 120;
+let brickOffsetLeft = 62;
 
 let score = 0;
 let lives = 3;
 
 const yamagataShape = [
-    [0, 0, 1, 1, 1, 0, 0],
-    [0, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 1],
-    [1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 0, 0],
-    [0, 0, 1, 1, 1, 0, 0],
-    [0, 0, 1, 1, 0, 0, 0]
+    [0,0,0,0,0,0,1,1,1,1,1,0], // Top of the head/hair
+    [0,0,0,0,0,1,1,1,1,1,1,1],
+    [0,0,0,0,1,1,1,1,1,1,1,1],
+    [0,0,0,1,1,0,1,1,1,1,1,0], // Forehead
+    [0,0,1,1,0,0,1,1,1,1,0,0], // Nose bridge
+    [0,1,1,0,0,0,0,1,1,0,0,0], // Nose tip
+    [0,1,1,0,0,0,0,1,1,1,0,0], // Upper lip area
+    [0,0,1,1,0,0,1,1,1,1,1,0], // Mouth/Chin
+    [0,0,0,1,1,1,1,1,1,1,1,0], // Chin/Jawline
+    [0,0,0,0,1,1,1,1,1,1,0,0],
+    [0,0,0,0,0,1,1,1,1,0,0,0], // Neck
+    [0,0,0,0,0,0,1,1,0,0,0,0],
 ];
 
 let bricks = [];
