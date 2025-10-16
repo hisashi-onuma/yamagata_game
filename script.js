@@ -78,6 +78,15 @@ function mouseMoveHandler(e) {
     }
 }
 
+const messages = ['きたきた！', 'イテテ', 'アチチ～', 'うまいよ！', 'ちょうしいい♪', 'おっとっと', 'まずねまれ'];
+const messageArea = document.getElementById('messageArea');
+
+function increaseSpeed() {
+    // Increase speed by 20% while preserving direction
+    dx *= 1.2;
+    dy *= 1.2;
+}
+
 function collisionDetection() {
     bricks.forEach(b => {
         if (b.status == 1) {
@@ -85,7 +94,14 @@ function collisionDetection() {
                 dy = -dy;
                 b.status = 0;
                 score++;
+
+                // Display random message
+                const randomIndex = Math.floor(Math.random() * messages.length);
+                messageArea.textContent = messages[randomIndex];
+
                 if (score == brickCount) {
+                    // Clear interval so speed doesn't increase on win screen
+                    clearInterval(speedInterval); 
                     alert("YOU WIN, CONGRATULATIONS!");
                     document.location.reload();
                 }
@@ -176,6 +192,7 @@ function draw() {
         } else {
             lives--;
             if (lives <= 0) {
+                clearInterval(speedInterval);
                 alert("GAME OVER");
                 document.location.reload();
                 return; // Stop the loop
@@ -198,6 +215,7 @@ function draw() {
     y += dy;
 
     if (lives <= 0) {
+        clearInterval(speedInterval);
         alert("GAME OVER");
         document.location.reload();
         return; // Stop the loop
@@ -206,4 +224,5 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
+let speedInterval = setInterval(increaseSpeed, 15000);
 draw();

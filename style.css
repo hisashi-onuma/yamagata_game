@@ -13,3 +13,12 @@ canvas {
     margin: 0 auto;
     border: 1px solid #ccc;
 }
+
+#messageArea {
+    height: 25px; /* Reserve space */
+    font-size: 20px;
+    font-weight: bold;
+    color: #0095DD;
+    margin-top: 10px;
+    text-align: center;
+}
