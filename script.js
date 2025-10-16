@@ -224,5 +224,5 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-let speedInterval = setInterval(increaseSpeed, 15000);
+let speedInterval = setInterval(increaseSpeed, 10000);
 draw();
